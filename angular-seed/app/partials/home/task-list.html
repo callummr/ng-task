@@ -1,0 +1,9 @@
+<div id="task-list" ng-controller="TaskListCtrl">
+	<ul class="list-group">
+      <li class="list-group-item" ng-class="{checked: task.done}" ng-repeat="task in tasks">
+        <div class="task-done pull-left"><input type="checkbox" ng-model="task.done"></div>
+        <p class="task-due-date pull-right">{{task.dueDate | date:'dd MMM @ HH:mm'}}</p>
+        <p class="task-text">{{task.text}}</p>
+      </li>
+    </ul>
+</div>
