@@ -1,0 +1,30 @@
+<div id="new-task">
+  <form novalidate name="new-task-form">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <h3>Add a new task</h3>
+        <div class="row">
+          <span class="col-md-8 col-xs-12"><input type="text" class="form-control text" ng-model="newTask.text" placeholder="What do you need to do?" required/></span>
+          <span class="col-md-4 col-xs-12">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Due date" value="{{newTask.dueDate | date:'dd MMMM @ HH:mm'}}" readonly>
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-primary" ng-click="clearDate()"><i class="glyphicon glyphicon-remove-circle"></i></button>
+                <button type="button" class="btn btn-primary dropdown-toggle" id="dateDropdown" data-toggle="dropdown"><i class="glyphicon glyphicon-calendar"></i></button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                  <datetimepicker data-ng-model="newTask.dueDate" data-datetimepicker-config="{ dropdownSelector: '#dateDropdown' }"/>
+                </ul>
+              </div>
+            </div>
+          </span>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-xs-12">
+            <button type="submit" ng-disabled="!newTask.text.length" class="btn btn-primary btn-lg col-xs-12" ng-click="addTask()">Add this task</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </form>
+</div>

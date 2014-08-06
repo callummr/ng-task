@@ -7,12 +7,13 @@ angular.module('myApp', [
   'myApp.filters',
   'myApp.services',
   'myApp.directives',
-  'myApp.controllers'
+  'myApp.controllers',
+  'ui.bootstrap.datetimepicker',
+  'ui.bootstrap'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/', {templateUrl: 'partials/home/home.html', controller: 'HomeCtrl'});
+  $routeProvider.when('/', {templateUrl: 'partials/home/home.html'});
   $routeProvider.when('/home', {redirectTo: '/'});
   $routeProvider.when('/about', {templateUrl: 'partials/about.html'});
-  $routeProvider.when('/test', {templateUrl: 'partials/loadtest.html'});
   $routeProvider.otherwise({redirectTo: '/'});
 }]);

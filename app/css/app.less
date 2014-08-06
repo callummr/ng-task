@@ -1,8 +1,13 @@
 @import "animations";
 
 .nightFade {
-	-webkit-transition: all 2s;
-	transition: all 2s;
+	-webkit-transition: all 1s;
+	transition: all 1s;
+}
+
+.fastFade {
+	-webkit-transition: all .6s;
+	transition: all .6s;
 }
 
 body {
@@ -12,7 +17,8 @@ body {
 		background: #282A2E;
 		color: #bbb;
 
-		#task-list li {
+		#task-list li, #new-task li {
+			.nightFade;
 			background: #555;
 			border-color: #919191;
 			&:hover {
@@ -32,39 +38,52 @@ body {
 	}
 }
 
+.task-delete {
+	margin-left: 10px;
+}
+
 #task-list li {
 	-webkit-animation: slideIn 0.4s;
 	animation: slideIn 0.4s;
-	-webkit-transition-duration: 0.4s;
-	transition-duration: 0.4s;
-	-webkit-transition-property: all;
-	transition-property: all;
-	-webkit-transform: translateZ(0);
-	transform: translateZ(0);
+	-webkit-transition: all 0.4s;
+	transition: all 0.4s;
 	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 	z-index:1;
 
 	&:hover, :focus {
-		box-shadow: 0 3px 5px 0 #ccc;
-		z-index:2;
-
+		box-shadow: 0 2px 4px 1px #ccc;
+		z-index:2; 
 		-webkit-transform: translateZ(1.1);
 		transform: translateZ(1.1);
+
+		.task-delete {
+			.fastFade;
+			color: #ffffff;
+			background-color: #e74c3c;
+			border-color: #e74c3c;
+			
+			&:hover {
+				background-color: #d62c1a;
+				border-color: #cd2a19;
+			}
+		}
 	}
 
 	&.checked {
 		color: #888;
 		background: #F3F3F3;
-		box-shadow: inset 0 0 15px -4px #CECECE !important;
+		box-shadow: inset 0 0 15px -4px #CECECE;
+	}
+
+	.task-text {
+		width: 700px;
+	}
+	.task-due-date {
+		margin-right: 15px;
 	}
 }
 
-button[type="submit"] {
-	-webkit-animation: slideHeight 0.4s;
-	animation: slideHeight 0.4s;
-}
-
-.btn-primary {
+.btn-primary.night-toggle {
 	&:focus {
 		color: #ffffff;
 		background-color: #2c3e50;
@@ -77,4 +96,4 @@ button[type="submit"] {
 	}
 }
 
-button:focus {outline:0 !important;}
+button.night-toggle:focus {outline:0 !important;}

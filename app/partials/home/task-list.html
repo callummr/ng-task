@@ -1,0 +1,24 @@
+<div id="task-list">
+  <ul class="list-group">
+    <li class="list-group-item" ng-class="{checked: task.done==true, editing: task.editing}" ng-repeat="task in tasks | orderBy:done">
+      <div id="task-editable" ng-show="task.editing">
+      <div class="task-done pull-left">
+      <input type="checkbox" ng-model="task.done">
+      </div>
+      <div class="task-edit pull-right btn btn-primary btn-sm" ng-click="task.editing=false"><i class="glyphicon glyphicon-ok"></i></div>
+        <p class="task-due-date pull-right">{{task.dueDate | date:'dd MMMM @ HH:mm'}}</p>
+        <input type="text" class="task-text form-control" ng-model="task.text" />
+      </div>
+      <div id="task-not-editable" ng-hide="task.editing">
+        <div class="task-done pull-left">
+        <input type="checkbox" ng-model="task.done">
+        </div>
+        <div class="task-delete pull-right btn btn-default btn-sm" ng-click="deleteTask(task.id)"><i class="glyphicon glyphicon-remove"></i></div>
+        <div class="task-edit pull-right btn btn-primary btn-sm" ng-click="task.editing=true"><i class="glyphicon glyphicon-pencil"></i></div>
+        <p class="task-due-date pull-right">{{task.dueDate | date:'dd MMMM @ HH:mm'}}</p>
+        <p class="task-text" ng-click="task.editing=true">{{task.text}}</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
