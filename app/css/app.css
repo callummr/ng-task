@@ -117,6 +117,10 @@ body.night-mode #new-task li:hover {
 }
 #task-list li .task-text {
   width: 700px;
+  height: 33px;
+  margin: 0;
+  padding: 6px 9px;
+  line-height: 1.5;
 }
 #task-list li .task-due-date {
   margin-right: 15px;

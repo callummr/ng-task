@@ -7,7 +7,7 @@
       </div>
       <div class="task-edit pull-right btn btn-primary btn-sm" ng-click="task.editing=false"><i class="glyphicon glyphicon-ok"></i></div>
         <p class="task-due-date pull-right">{{task.dueDate | date:'dd MMMM @ HH:mm'}}</p>
-        <input type="text" class="task-text form-control" ng-model="task.text" />
+        <input type="text" class="task-text form-control input-sm" ng-model="task.text" />
       </div>
       <div id="task-not-editable" ng-hide="task.editing">
         <div class="task-done pull-left">
