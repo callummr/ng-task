@@ -1,10 +1,9 @@
-'use strict';
+(function() {
+  'use strict';
 
-/* Services */
+  /* Services */
 
-
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('myApp.services', []).
-  value('version', '0.1').
-  value('name', 'Tasks');
+  angular.module('myApp.services', []).
+    value('version', '0.2').
+    value('name', 'Tasks');
+  })();

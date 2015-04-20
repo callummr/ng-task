@@ -1,41 +1,43 @@
-'use strict';
+(function() {
+  'use strict';
 
-/* Directives */
+  /* Directives */
 
 
-angular.module('myApp.directives', []).
+  angular.module('myApp.directives', []).
 
-	// General
+  	// General
 
-  directive('appVersion', ['version', function(version) {
-    return function(scope, elm, attrs) {
-      elm.text(version);
-    }
-  }])
-  .directive('appName', ['name', function(name) {
-  	return function(scope, elm, attrs) {
-  		elm.text(name);
-  	}
-  }])
-  .directive('header', [function() {
-  	return {
-  		restrict: 'E',
-  		templateUrl: 'partials/header.html'  			
-  	};
-  }])
+    directive('appVersion', ['version', function(version) {
+      return function(scope, elm, attrs) {
+        elm.text(version);
+      };
+    }])
+    .directive('appName', ['name', function(name) {
+    	return function(scope, elm, attrs) {
+    		elm.text(name);
+    	};
+    }])
+    .directive('header', [function() {
+    	return {
+    		restrict: 'E',
+    		templateUrl: 'partials/header.html'  			
+    	};
+    }])
 
-  // Home page
+    // Home page
 
-  .directive('addTask', [function() {
-  	return {
-  		restrict: 'E',
-  		templateUrl: 'partials/home/add-task.html'
-  	};
-  }])
+    .directive('addTask', [function() {
+    	return {
+    		restrict: 'E',
+    		templateUrl: 'partials/home/add-task.html'
+    	};
+    }])
 
-  .directive('taskList', [function() {
-    return {
-      restrict: 'E',
-      templateUrl: 'partials/home/task-list.html'
-    };
-  }]);
+    .directive('taskList', [function() {
+      return {
+        restrict: 'E',
+        templateUrl: 'partials/home/task-list.html'
+      };
+    }]);
+  })();
