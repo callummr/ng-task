@@ -17,14 +17,7 @@
 
     // Home page
 
-    .controller('TaskListCtrl', ['$scope', '$http', '$modal', function($scope, $http, $modal) {
-      $scope.loadTasks = function() {
-        $scope.tasks = [
-          {text: "Hi there!", dueDate: null, done: false},
-          {text: "Your changes aren't permanent", dueDate: null, done: true},
-          {text: "This is a demonstration of AngularJS more than anything", dueDate: null, done: false}
-        ];
-      };
+    .controller('TaskListCtrl', ['$scope', '$http', '$modal', 'StorageManager', function($scope, $http, $modal, StorageManager) {
 
       $scope.deleteTask = function(i) {
         $scope.tasks.splice(i, 1);
@@ -52,7 +45,12 @@
 
       $scope.clearNewTask(); // more of an init than clear
 
-      $scope.loadTasks();
+      $scope.tasks = StorageManager.getSavedTasks();
+
+      // save any changes to 'tasks' immediately to localStorage
+      $scope.$watch('tasks', function(newTasks) {
+        StorageManager.saveTasks(newTasks);
+      }, true); // deep watch
     }])
 
     // About
